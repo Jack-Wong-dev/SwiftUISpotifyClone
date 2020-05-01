@@ -14,6 +14,15 @@ struct ContentItemViewer: View {
     
     var body: some View {
         ZStack {
+            //Layer 0
+            LinearGradient(gradient: Gradient(colors: [Color.init(red: 240/255, green: 170/255, blue: 160/255),
+                                                       .black,
+                                                       .black
+                ]
+            ), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            
+            //Layer 1
             VStack {
                 Spacer()
                     .frame(height: 50)
@@ -21,10 +30,15 @@ struct ContentItemViewer: View {
                     .resizable()
                     .frame(width: 200, height: 200)
                 Text("Title")
+                    .foregroundColor(.white)
+                    .font(.system(size: 24, weight: .bold))
                 Text("Subtitle")
                     .foregroundColor(.init(red: 0.5, green: 0.5, blue: 0.5))
+                    .font(.system(size: 16,weight: .medium))
+                
                 Spacer()
             }
+            //Layer 2
             ScrollView {
                 VStack(spacing: 0) {
                     HStack {
@@ -38,15 +52,14 @@ struct ContentItemViewer: View {
                     VStack {
                         ForEach(0..<30) { indicator in
                             HStack {
-                                Text("\(indicator)")
-                                    .foregroundColor(.white)
+                                CellRow()
                                 Spacer()
                             }
                         }
                     }
                     .background(Color.black)
                 }
-                .background(Color.yellow.opacity(0.1))
+                .background(Color.clear)
                 
             }
         }

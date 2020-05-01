@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A06D875245CCF4500467E0D /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D874245CCF4500467E0D /* SearchPage.swift */; };
+		0A06D877245CD04400467E0D /* ContentItemViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D876245CD04400467E0D /* ContentItemViewer.swift */; };
 		0AF64CA5245CCCC200198315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA4245CCCC200198315 /* AppDelegate.swift */; };
 		0AF64CA7245CCCC200198315 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA6245CCCC200198315 /* SceneDelegate.swift */; };
 		0AF64CA9245CCCC200198315 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA8245CCCC200198315 /* ContentView.swift */; };
 		0AF64CAB245CCCC500198315 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF64CAA245CCCC500198315 /* Assets.xcassets */; };
 		0AF64CAE245CCCC500198315 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF64CAD245CCCC500198315 /* Preview Assets.xcassets */; };
 		0AF64CB1245CCCC500198315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF64CAF245CCCC500198315 /* LaunchScreen.storyboard */; };
+		0AF64CB9245CCE6800198315 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CB8245CCE6800198315 /* HomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A06D874245CCF4500467E0D /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
+		0A06D876245CD04400467E0D /* ContentItemViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemViewer.swift; sourceTree = "<group>"; };
 		0AF64CA1245CCCC200198315 /* SpotifyClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF64CA4245CCCC200198315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF64CA6245CCCC200198315 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		0AF64CAD245CCCC500198315 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AF64CB0245CCCC500198315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AF64CB2245CCCC500198315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AF64CB8245CCE6800198315 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,9 @@
 		0AF64CA3245CCCC200198315 /* SpotifyClone */ = {
 			isa = PBXGroup;
 			children = (
+				0AF64CBA245CCE8900198315 /* Views */,
 				0AF64CA4245CCCC200198315 /* AppDelegate.swift */,
 				0AF64CA6245CCCC200198315 /* SceneDelegate.swift */,
-				0AF64CA8245CCCC200198315 /* ContentView.swift */,
 				0AF64CAA245CCCC500198315 /* Assets.xcassets */,
 				0AF64CAF245CCCC500198315 /* LaunchScreen.storyboard */,
 				0AF64CB2245CCCC500198315 /* Info.plist */,
@@ -73,6 +79,17 @@
 				0AF64CAD245CCCC500198315 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0AF64CBA245CCE8900198315 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AF64CA8245CCCC200198315 /* ContentView.swift */,
+				0AF64CB8245CCE6800198315 /* HomePage.swift */,
+				0A06D874245CCF4500467E0D /* SearchPage.swift */,
+				0A06D876245CD04400467E0D /* ContentItemViewer.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +165,10 @@
 			files = (
 				0AF64CA5245CCCC200198315 /* AppDelegate.swift in Sources */,
 				0AF64CA7245CCCC200198315 /* SceneDelegate.swift in Sources */,
+				0A06D877245CD04400467E0D /* ContentItemViewer.swift in Sources */,
 				0AF64CA9245CCCC200198315 /* ContentView.swift in Sources */,
+				0AF64CB9245CCE6800198315 /* HomePage.swift in Sources */,
+				0A06D875245CCF4500467E0D /* SearchPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

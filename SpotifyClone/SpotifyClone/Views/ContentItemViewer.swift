@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ContentItemViewer: View {
+    @State private var playButtonOffset: CGFloat = 335
     
-    var topSpacerHeight: CGFloat = 400
+    private var topSpacerHeight: CGFloat = 400
     
     var body: some View {
         ZStack {
@@ -40,6 +41,18 @@ struct ContentItemViewer: View {
             }
             //Layer 2
             ScrollView {
+                //Keep track of scrolling
+                GeometryReader { geo -> AnyView? in
+                    let thisOffset = geo.frame(in: .global).minY
+                    
+                    if thisOffset > -300 {
+                        self.playButtonOffset = thisOffset
+                    }else{
+                        self.playButtonOffset = -300
+                    }
+                    return nil
+                }
+                
                 VStack(spacing: 0) {
                     HStack {
                         Spacer()
@@ -61,6 +74,24 @@ struct ContentItemViewer: View {
                 }
                 .background(Color.clear)
                 
+            }
+            //Layer 3
+            VStack {
+                Spacer()
+                    .frame(height: playButtonOffset + 300)
+                Text("PLAY")
+                    .foregroundColor(.white)
+                    .frame(width: 240, height: 50)
+                    .background(Color.init(red: 30/255, green: 215/255, blue: 96/255))
+                    .cornerRadius(25)
+                    .font(.system(size: 20, weight: .bold))
+                    .shadow(radius: 20)
+                Spacer()
+            }
+            VStack {
+                Text("\(playButtonOffset)")
+                    .foregroundColor(.yellow)
+                Spacer()
             }
         }
     }

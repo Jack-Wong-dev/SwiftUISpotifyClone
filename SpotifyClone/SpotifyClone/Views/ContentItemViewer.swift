@@ -33,10 +33,10 @@ struct ContentItemViewer: View {
                     //                Image("westworld")
                     .resizable()
                     .frame(width: 200, height: 200)
-                Text("Title")
+                Text(album.song)
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .bold))
-                Text("Subtitle")
+                Text("by \(album.artist)")
                     .foregroundColor(.init(red: 0.5, green: 0.5, blue: 0.5))
                     .font(.system(size: 16,weight: .medium))
                 
@@ -120,12 +120,13 @@ struct ContentItemViewer: View {
                 .padding()
                 Spacer()
             }
-            // Debug layer
-            //            VStack {
-            //                Text("\(playButtonOffset)")
-            //                    .foregroundColor(.yellow)
-            //                Spacer()
-            //            }
+            
+            //Debug layer
+            VStack {
+//                Text("\(playButtonOffset)")
+//                    .foregroundColor(.yellow)
+                Spacer()
+            }
         }
     }
     

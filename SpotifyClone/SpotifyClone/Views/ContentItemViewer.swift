@@ -12,11 +12,12 @@ struct ContentItemViewer: View {
     @State private var playButtonOffset: CGFloat = 335
     
     private var topSpacerHeight: CGFloat = 400
+    private let reusableColor = Color.init(red: 240/255, green: 170/255, blue: 160/255)
     
     var body: some View {
         ZStack {
             //Layer 0
-            LinearGradient(gradient: Gradient(colors: [Color.init(red: 240/255, green: 170/255, blue: 160/255),
+            LinearGradient(gradient: Gradient(colors: [reusableColor,
                                                        .black,
                                                        .black
                 ]
@@ -39,7 +40,8 @@ struct ContentItemViewer: View {
                 
                 Spacer()
             }
-            //Layer 2
+            
+            //Layer 2 : "Table"
             ScrollView {
                 //Keep track of scrolling
                 GeometryReader { geo -> AnyView? in
@@ -61,7 +63,7 @@ struct ContentItemViewer: View {
                                 LinearGradient(gradient: Gradient(colors:  [.clear,.clear,.clear,.clear,.black]), startPoint: .top, endPoint: .bottom)
                         )
                     }
-                    
+                    //Actual Table starts here
                     VStack {
                         ForEach(0..<30) { indicator in
                             HStack {
@@ -75,7 +77,16 @@ struct ContentItemViewer: View {
                 .background(Color.clear)
                 
             }
-            //Layer 3
+            
+            //Filler Layer: Used to not have table's ellipsis overlap with top right ellipsis
+            VStack{
+                LinearGradient(gradient: Gradient(colors: [reusableColor, .clear]), startPoint: .top, endPoint: .bottom)
+                .frame(height: 300)
+                Spacer()
+            }
+            .edgesIgnoringSafeArea(.all)
+            
+            //Layer 3: Play Button
             VStack {
                 Spacer()
                     .frame(height: playButtonOffset + 300)
@@ -91,16 +102,28 @@ struct ContentItemViewer: View {
                 .frame(width: getPlayButtonWidth(), height: 50)
                 .background(Color.init(red: 30/255, green: 215/255, blue: 96/255))
                 .cornerRadius(25)
-                .font(.system(size: 20, weight: .bold))
+                .font(.system(size: 17, weight: .bold))
                 .shadow(radius: 20)
                 Spacer()
             }
-            //Debug layer
+            
+            //Layer 4: On top: Left Chevron, Right Ellipsis
             VStack {
-                Text("\(playButtonOffset)")
-                    .foregroundColor(.yellow)
+                HStack {
+                    Image(systemName: "chevron.left")
+                    Spacer()
+                    Image(systemName: "ellipsis")
+                }
+                .foregroundColor(.white)
+                .padding()
                 Spacer()
             }
+            //Debug layer
+//            VStack {
+//                Text("\(playButtonOffset)")
+//                    .foregroundColor(.yellow)
+//                Spacer()
+//            }
         }
     }
     

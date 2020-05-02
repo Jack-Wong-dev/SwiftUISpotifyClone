@@ -10,6 +10,8 @@
 		0A06D875245CCF4500467E0D /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D874245CCF4500467E0D /* SearchPage.swift */; };
 		0A06D877245CD04400467E0D /* ContentItemViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D876245CD04400467E0D /* ContentItemViewer.swift */; };
 		0A06D879245CDA5500467E0D /* CellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D878245CDA5500467E0D /* CellRow.swift */; };
+		0A06D87B245E28B900467E0D /* Extension-UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D87A245E28B900467E0D /* Extension-UIImage.swift */; };
+		0A06D87E245E334300467E0D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06D87D245E334300467E0D /* Model.swift */; };
 		0AF64CA5245CCCC200198315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA4245CCCC200198315 /* AppDelegate.swift */; };
 		0AF64CA7245CCCC200198315 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA6245CCCC200198315 /* SceneDelegate.swift */; };
 		0AF64CA9245CCCC200198315 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64CA8245CCCC200198315 /* ContentView.swift */; };
@@ -23,6 +25,8 @@
 		0A06D874245CCF4500467E0D /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
 		0A06D876245CD04400467E0D /* ContentItemViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemViewer.swift; sourceTree = "<group>"; };
 		0A06D878245CDA5500467E0D /* CellRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRow.swift; sourceTree = "<group>"; };
+		0A06D87A245E28B900467E0D /* Extension-UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-UIImage.swift"; sourceTree = "<group>"; };
+		0A06D87D245E334300467E0D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0AF64CA1245CCCC200198315 /* SpotifyClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF64CA4245CCCC200198315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF64CA6245CCCC200198315 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,9 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A06D87C245E333100467E0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A06D87D245E334300467E0D /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0AF64C98245CCCC200198315 = {
 			isa = PBXGroup;
 			children = (
+				0A06D87C245E333100467E0D /* Models */,
 				0AF64CA3245CCCC200198315 /* SpotifyClone */,
 				0AF64CA2245CCCC200198315 /* Products */,
 			);
@@ -64,6 +77,7 @@
 		0AF64CA3245CCCC200198315 /* SpotifyClone */ = {
 			isa = PBXGroup;
 			children = (
+				0A06D87A245E28B900467E0D /* Extension-UIImage.swift */,
 				0AF64CBA245CCE8900198315 /* Views */,
 				0AF64CA4245CCCC200198315 /* AppDelegate.swift */,
 				0AF64CA6245CCCC200198315 /* SceneDelegate.swift */,
@@ -166,11 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A06D87E245E334300467E0D /* Model.swift in Sources */,
 				0AF64CA5245CCCC200198315 /* AppDelegate.swift in Sources */,
 				0AF64CA7245CCCC200198315 /* SceneDelegate.swift in Sources */,
 				0A06D877245CD04400467E0D /* ContentItemViewer.swift in Sources */,
 				0AF64CA9245CCCC200198315 /* ContentView.swift in Sources */,
 				0AF64CB9245CCE6800198315 /* HomePage.swift in Sources */,
+				0A06D87B245E28B900467E0D /* Extension-UIImage.swift in Sources */,
 				0A06D879245CDA5500467E0D /* CellRow.swift in Sources */,
 				0A06D875245CCF4500467E0D /* SearchPage.swift in Sources */,
 			);

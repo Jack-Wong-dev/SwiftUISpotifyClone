@@ -10,25 +10,27 @@ import SwiftUI
 
 struct ContentItemViewer: View {
     @State private var playButtonOffset: CGFloat = 335
+    @State var album: AlbumInfo
+    private let topSpacerHeight: CGFloat = 400
+    private let spotifyGreen = Color.init(red: 30/255, green: 215/255, blue: 96/255)
     
-    private var topSpacerHeight: CGFloat = 400
-    private let reusableColor = Color.init(red: 240/255, green: 170/255, blue: 160/255)
     
     var body: some View {
         ZStack {
-            //Layer 0
-            LinearGradient(gradient: Gradient(colors: [reusableColor,
+            /** Layer 0 */
+            LinearGradient(gradient: Gradient(colors: [getDominantColor(),
                                                        .black,
                                                        .black
                 ]
             ), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
-            //Layer 1
+            /** Layer 1:  */
             VStack {
                 Spacer()
                     .frame(height: 50)
-                Image("westworld")
+                Image(uiImage: album.albumImage)
+                    //                Image("westworld")
                     .resizable()
                     .frame(width: 200, height: 200)
                 Text("Title")
@@ -41,7 +43,7 @@ struct ContentItemViewer: View {
                 Spacer()
             }
             
-            //Layer 2 : "Table"
+            /** Layer 2 : "Table" */
             ScrollView {
                 //Keep track of scrolling
                 GeometryReader { geo -> AnyView? in
@@ -78,15 +80,15 @@ struct ContentItemViewer: View {
                 
             }
             
-            //Filler Layer: Used to not have table's ellipsis overlap with top right ellipsis
+            /** Filler Layer: Used to not have table's ellipsis overlap with top right ellipsis */
             VStack{
-                LinearGradient(gradient: Gradient(colors: [reusableColor, .clear]), startPoint: .top, endPoint: .bottom)
-                .frame(height: 300)
+                LinearGradient(gradient: Gradient(colors: [getDominantColor(), .clear]), startPoint: .top, endPoint: .bottom)
+                    .frame(height: 300)
                 Spacer()
             }
             .edgesIgnoringSafeArea(.all)
             
-            //Layer 3: Play Button
+            /** Layer 3: Play Button */
             VStack {
                 Spacer()
                     .frame(height: playButtonOffset + 300)
@@ -100,14 +102,14 @@ struct ContentItemViewer: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: getPlayButtonWidth(), height: 50)
-                .background(Color.init(red: 30/255, green: 215/255, blue: 96/255))
+                .background(spotifyGreen)
                 .cornerRadius(25)
                 .font(.system(size: 17, weight: .bold))
                 .shadow(radius: 20)
                 Spacer()
             }
             
-            //Layer 4: On top: Left Chevron, Right Ellipsis
+            /** Layer 4: On top: Left Chevron, Right Ellipsis */
             VStack {
                 HStack {
                     Image(systemName: "chevron.left")
@@ -118,12 +120,12 @@ struct ContentItemViewer: View {
                 .padding()
                 Spacer()
             }
-            //Debug layer
-//            VStack {
-//                Text("\(playButtonOffset)")
-//                    .foregroundColor(.yellow)
-//                Spacer()
-//            }
+            // Debug layer
+            //            VStack {
+            //                Text("\(playButtonOffset)")
+            //                    .foregroundColor(.yellow)
+            //                Spacer()
+            //            }
         }
     }
     
@@ -137,10 +139,24 @@ struct ContentItemViewer: View {
             return width
         }
     }
+    
+    func getDominantColor() -> Color {
+        Color(album.albumImage.averageColor ?? UIColor.white)
+    }
 }
 
 struct ContentItemViewer_Previews: PreviewProvider {
+    
+    static let westWorldSeason3 = AlbumInfo(albumImage: UIImage(named: "westworld") ?? UIImage(), artist: "Ramin Djawadi", song: "Wicked Games")
+    
+    static let rickSanchez = AlbumInfo(albumImage: UIImage(named: "schwifty") ?? UIImage(), artist: "Rick Sanchez", song: "Schwifty")
+    
     static var previews: some View {
-        ContentItemViewer()
+        
+        Group {
+            ContentItemViewer(album: westWorldSeason3)
+            ContentItemViewer(album: rickSanchez)
+        }
     }
+    
 }
